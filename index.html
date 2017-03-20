@@ -1,0 +1,84 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>web test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> <!--320-->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="scripts/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="scripts/angular.min.js"></script>
+	<script type="text/javascript" src="scripts/angular-route.min.js"></script>
+	<script type="text/javascript" src="scripts/controller.js"></script>
+	
+  </head>
+  
+<body>
+    <div ng-app="mainApp" ng-controller="player" ng-cloak>
+        
+        <!--Top Menu-->
+        <nav>
+            <!--sort-->
+            <button ng-click="toggleSort = !toggleSort" class="btn btn-primary sort"><span class="glyphicon glyphicon-sort" aria-hidden="true"></span></button>
+            <div ng-class="{'sort-menu' : toggleSort}" class="song-info-close">
+                <ul>
+                    <a ng-click="sortBy('song')"><li>song</li></a>
+                    <hr>
+                    <a ng-click="sortBy('album')"><li>Album</li></a>
+                    <hr>
+                    <a ng-click="sortBy('artist')"><li>Artist</li></a>
+                    <hr>
+                    <a ng-click="sortBy('duration')"><li>Duration</li></a>
+                </ul>
+            </div>
+        </nav>
+       
+        <!--Main Content-->
+        <table class="main-table" ng-click="closeSort()">
+            <tr ng-repeat="song in songs | orderBy:propertyName:reverse " class="song-row">
+                <td>
+                    <table>
+                        <tr ng-click="toggleSong = !toggleSong;">
+                            <td class="album-image">
+                                <img ng-src="{{song.image}}" class="album-cover"><br>
+                            </td>
+                            <td>
+                                {{song.song}}<br>
+                                <span>{{song.artist}}</span>
+                            </td>
+                            <td>
+                                <span>{{song.duration}}</span>
+                            </td>
+                        </tr>
+                        
+                    </table>
+                     <table>
+                        <tr ng-class="{'song-info' : toggleSong}" class="song-info-close" ng-click="toggleSong = !toggleSong">
+                            <td >
+                                <span ng-click="playThis(song.artist, song.song, song.duration)" class="glyphicon glyphicon-play-circle"></span><br>
+                                   <br> <strong>{{song.artist}}</strong><br>    
+                                    {{song.album}}<br><span class="Genre">{{song.genre}}</span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="bottom-space">
+                
+                </td>
+            </tr>
+        </table>
+        
+        <div class="play" ng-class="play">
+            <h1>{{songPlay.artist}} - {{songPlay.song}}</h1><br>
+            <p>0-------------------------------------{{songPlay.duration}}</p>
+            <div class="controllers"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span>&nbsp;&nbsp; <span class="glyphicon glyphicon-play" aria-hidden="true"></span> &nbsp;&nbsp;<span class="glyphicon glyphicon-forward" aria-hidden="true"></span></div>
+        </div>
+    </div>
+
+</html>

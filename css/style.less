@@ -1,0 +1,192 @@
+@import "reset.css";
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import "https://fonts.googleapis.com/css?family=Exo:100, 300, 800";
+
+@mainFont: 'Exo', sans-serif;
+@images: "../images/";
+@secondaryFont: #bfbfbf;
+@thirdColor: #ff009c;
+@border-color:#eaeaea;
+
+
+body{
+    font-family: @mainFont; 
+    padding-bottom: 20%;
+}
+table tr.song-row {
+    background: #fff;
+    border-bottom: 1px solid @border-color;
+    padding: 4% 0;
+}
+
+ul li ul li table{
+    width: 100%;
+}
+
+table{
+    width: 100%;
+}
+
+table tr td tr td{
+    padding:1% 0;
+}
+table tr td tr td.album-image{ //album photo
+    width: 15%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+table tr td tr td:nth-child(1) a:hover{
+    text-decoration: none;
+}
+
+.glyphicon-play-circle{
+    font-size: 364%;
+    color: @thirdColor;
+    line-height: 22%;
+}
+
+table td:nth-child(2){ //song+artist
+    width: 65%;
+    font-size: 100%;
+    vertical-align: middle;
+}
+
+table tr td tr td:nth-child(2) span{
+    color: @secondaryFont;
+    font-size: 70%;
+}
+
+table tr td tr td:nth-child(3){ //duration
+    vertical-align: middle;
+    width: 20%;
+     color: @secondaryFont;
+    font-size: 70%;
+}
+
+
+img.album-cover{
+    width: 70%;
+    padding: 10% 0;
+     border-radius: 50%;
+}
+
+
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary.active, .btn-primary:active, .open>.dropdown-toggle.btn-primary, .btn-primary:active:focus, .btn-primary:active:hover{
+    border:0;
+    background: @thirdColor;
+    outline: none;
+}
+.sort{
+    float: right;
+}
+
+
+.close{
+    display: none;
+}
+
+.song-info-close{
+    .close;
+}
+
+.song-info{
+    display: block;
+}
+
+.song-info td{
+    width: 1%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.menus{
+    display: block;
+    padding: 5%;
+     z-index: 5;
+    position: fixed;
+}
+
+
+.main-table{
+    position: absolute;
+    z-index: 0;
+    top: 7%;
+}
+
+
+.sort-menu{
+    .menus;
+    width: 50%;
+    right: 4%;
+    top: 4.5%;
+    display: block;
+    padding: 0;
+}
+
+.sort-menu ul{
+    width:100%;
+    background: @thirdColor;
+    padding: 5%;
+}
+.sort-menu a li{
+    text-decoration: none;
+    color: #fff;
+}
+
+.sort-menu a:focus, .sort-menu a:hover{
+    color: @secondaryFont;
+    text-decoration: none;
+    font-weight: 100;
+}
+
+nav{
+   
+    background: #fff;
+    position: fixed;
+    top: 0;
+    width: 98%;
+    z-index: 1;
+    padding: 2%;
+}
+
+.play{
+    background: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    width: 100%;
+    min-height: 50px;
+    height: 14%;
+    bottom: 0;
+    border-top: 1px solid @thirdColor;
+    color: #fff;
+    text-align: center;
+    font-size: 100%;
+    padding: 2% 0;
+    line-height: 100%;
+}
+
+.play p{
+    font-size: 70%;
+}
+
+.bottom-space{
+    width: 100%;
+    padding: 15% 0;
+}
+
+.Genre{
+    color: @thirdColor;
+    font-size: 80%;
+}
+
+strong{
+    font-weight: 800;
+}
